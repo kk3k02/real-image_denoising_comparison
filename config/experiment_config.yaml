@@ -1,0 +1,52 @@
+seed: 42
+
+paths:
+  sidd_medium_root: "data/raw/SIDD_Medium_Srgb"
+  sidd_medium_raw_root: "data/raw/SIDD_Medium_Raw"
+  midd_root: "data/raw/MIDD"
+  splits_json: "data/splits.json"
+  checkpoints_dir: "checkpoints/"
+  results_dir: "results/"
+
+data:
+  patch_size: 128
+  train_val_test_ratio: [0.8, 0.1, 0.1]
+  domains: ["srgb", "raw"]
+  expected_sidd_pairs: 1280
+  expected_midd_pairs: 400
+
+training:
+  batch_size: 32
+  num_epochs: 50
+  learning_rate: 1.0e-3
+  lr_scheduler: "cosine"
+  early_stopping_patience: 10
+  num_workers: 4
+
+models:
+  dncnn:
+    num_layers: 17
+    num_channels: 64
+    blind: true
+  ffdnet:
+    num_layers: 15
+    num_channels: 64
+    downscale_factor: 2
+  cbdnet:
+    cnne_layers: 5
+    cnnd_channels: 64
+    asymmetric_alpha: 0.3
+  bm3d:
+    sigma_estimation: "mad"
+
+benchmarking:
+  gpu_warmup_runs: 10
+  gpu_timed_runs: 50
+  cpu_timed_runs: 10
+  cpu_num_threads: 1
+  test_image_size: [256, 256]
+
+logging:
+  level: "INFO"
+  wandb_project: "denoising-comparison"
+  wandb_enabled: false

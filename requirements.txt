@@ -1,0 +1,13 @@
+# Requires Python 3.10 or 3.11. torch==2.2.1 does not publish wheels for Python 3.14.
+torch==2.2.1
+numpy==1.26.4
+opencv-python==4.9.0.80
+rawpy==0.21.0
+bm3d==4.0.0
+scikit-image==0.22.0
+# piqa==0.3.3 is no longer available from the current PyPI index; 1.3.2 keeps PSNR/SSIM APIs used here.
+piqa==1.3.2
+wandb==0.16.6
+pyyaml==6.0.1
+tqdm==4.66.2
+pandas==2.2.1

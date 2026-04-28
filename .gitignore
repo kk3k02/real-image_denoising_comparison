@@ -3,3 +3,8 @@
 __pycache__/
 *.py[cod]
 .env
+data/raw/
+data/splits.json
+checkpoints/
+results/
+.pytest_cache/
