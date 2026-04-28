@@ -8,3 +8,8 @@ data/splits.json
 checkpoints/
 results/
 .pytest_cache/
+.ipynb_checkpoints/
+*.log
+*.tmp
+Thumbs.db
+Desktop.ini
